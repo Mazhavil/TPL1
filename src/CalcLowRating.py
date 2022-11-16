@@ -22,7 +22,6 @@ class CalcLowRating:
                     count += 1
                 self.tmp_student_dict[key] = count == needCount
 
-
         # Результирующий словарь, оставляющий только студентов хорошистов
         for (key, value) in self.tmp_student_dict.items():
             if value:

@@ -4,6 +4,7 @@ from lxml import etree
 from Types import DataType
 from DataReader import DataReader
 
+
 class DataReaderXML(DataReader):
 
     def __init__(self) -> None:
@@ -17,6 +18,7 @@ class DataReaderXML(DataReader):
             for student in root.getchildren():
                 self.students[student.tag] = []
                 for element in student.getchildren():
-                    self.students[student.tag].append((element.tag, int(element.text)))
+                    self.students[student.tag].\
+                        append((element.tag, int(element.text)))
 
         return self.students
