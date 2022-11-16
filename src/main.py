@@ -33,5 +33,6 @@ def main():
     lowRating = CalcLowRating(students).calc(2)
     print("Low Rating: ", lowRating)
 
+
 if __name__ == "__main__":
     main()
