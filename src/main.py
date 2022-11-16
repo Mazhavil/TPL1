@@ -5,6 +5,7 @@ import sys
 from CalcRating import CalcRating
 from TextDataReader import TextDataReader
 from DataReaderXML import DataReaderXML
+from CalcLowRating import CalcLowRating
 
 
 def get_path_from_arguments(args) -> str:
@@ -18,13 +19,19 @@ def get_path_from_arguments(args) -> str:
 def main():
     path = get_path_from_arguments(sys.argv[1:])
 
-    reader = DataReaderXML()
+    if path.endswith("xml"):
+        reader = DataReaderXML()
+    else:
+        reader = TextDataReader()
+
     students = reader.read(path)
     print("Students: ", students)
 
     rating = CalcRating(students).calc()
     print("Rating: ", rating)
 
+    lowRating = CalcLowRating(students).calc(2)
+    print("Low Rating: ", lowRating)
 
 if __name__ == "__main__":
     main()
